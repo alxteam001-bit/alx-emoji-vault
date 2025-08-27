@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secret Emoji Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #333;
+    }
+    #chat {
+      width: 90%;
+      max-width: 400px;
+      height: 300px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      overflow-y: auto;
+      background: white;
+    }
+    #message {
+      width: 70%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>💬 Secret Emoji Chat</h1>
+  <div id="chat"></div>
+  <input type="text" id="message" placeholder="Type emoji message..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    const chatBox = document.getElementById("chat");
+
+    function sendMessage() {
+      const input = document.getElementById("message");
+      if (input.value.trim() !== "") {
+        const msg = document.createElement("div");
+        msg.textContent = "😎 " + input.value;
+        chatBox.appendChild(msg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        input.value = "";
+      }
+    }
+  </script>
+</body>
+  </html>
